@@ -1,0 +1,50 @@
+@(titulo: String, classe: String, usr: Usuario, semana: Integer, concluido: Boolean)
+<div class="tarefa panel @classe">
+	<div class="@classe">
+		<!-- Cabeçalho da tabela -->
+		<button class="btn panel-heading">
+			@if(concluido) {
+				<span class="glyphicon glyphicon-chevron-up"></span> @titulo (@usr.countTarefasConcluidas(semana)/@usr.countTarefas(semana)) 
+			} else {
+				<span class="glyphicon glyphicon-chevron-up"></span> @titulo (@(usr.countTarefas(semana) - usr.countTarefasConcluidas(semana))/@usr.countTarefas(semana)) 
+			}			
+		</button>
+		<div>
+			<!-- Corpo da tabela -->
+			<table class="table panel-body">
+			<!-- Primeira linha -->
+			<tr class="well">
+				<td><b>Nome</b></td>
+				<td><b>Descrição</b></td>
+				<td><b>Prioridade</b></td>
+				<td></td>
+			</tr>
+			<!-- Linhas consecutivas -->
+			@for(tarefa <- usr.getTarefas(semana)) {
+				@if(concluido && tarefa.isConcluido() || !concluido && !tarefa.isConcluido()) {
+					<tr>
+						<td>@tarefa.getNome()</td>
+						<td>@tarefa.getDescricao()</td>
+						<td>@tarefa.getPrioridade()</td>
+						<td>
+							@if(!concluido) {
+								<form action="/conclui/@tarefa.hashCode()&@(semana+1)" method="get" class="inline_form">
+									<button type="submit" class="concluir btn btn-success" >
+										<span class="glyphicon glyphicon-ok"></span> Concluir
+									</button>
+								</form>
+							}
+							<form action="/remove/@tarefa.hashCode()&@(semana+1)" method="get" class="inline_form">
+								<button type="submit" class="remover btn btn-danger" >
+									<span class="glyphicon glyphicon-remove"></span> Remover
+								</button>
+							</form>
+						</td>
+					</tr>
+				}
+			}
+			</table>
+		</div>
+	</div>
+	
+</div>

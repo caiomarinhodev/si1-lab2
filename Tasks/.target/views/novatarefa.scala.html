@@ -1,0 +1,47 @@
+@(tarefaForm: Form[Tarefa])
+
+@import helper._
+
+<div class="modal fade" id="criar_tarefa">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Adicionar tarefa</h4>
+      </div>
+      @form(routes.Application.adicionaTarefa()) {
+	      <div class="modal-body">
+	      @inputText(
+	      	tarefaForm("nome"), 
+		            '_label -> "Nome", 
+		            '_help -> "Obrigatório",
+		            'class -> "form-control",
+		            'required -> "required"
+		  )
+	      @inputText(
+	      	tarefaForm("descricao"), 
+		            '_label -> "Descrição", 
+		            'class -> "form-control"
+		  )
+		  <label for="semana">Semana</label>
+		  <select name="semana" class="form-control">
+		    @for(i <- 1 until 7){
+		        <option value="@(i-1)">@(i)ª semana</option>
+		    }
+		  </select><br>
+	      <label for="prioridade">Prioridade</label>
+		  <select name="prioridade" class="form-control">
+		    @for(prior <- Prioridade.values()){
+		        <option value="@prior.name()">@prior</option>
+		    }
+		  </select>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        <button type="submit" class="btn btn-primary">Adicionar</button>
+	      </div>
+     	 }
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+​

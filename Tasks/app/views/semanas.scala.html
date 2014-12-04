@@ -1,0 +1,16 @@
+@(quantidade: Integer, semana: Integer)
+
+<div class="semanas_table">
+	<ul class="pagination">
+	 	  <li class="disabled"><a href="#">Semana:</a></li>
+	  @for(i <- 1 until (quantidade + 1)) {
+	  	<!-- Apenas a semana indicada fica ativa -->
+	  	@if(semana + 1 == i) {
+	  		<li class="active"><a href="/@i">@i <span class="sr-only">(current)</span></a></li>
+	  	} else {
+	  		<li><a href="/@i">@i <span class="sr-only">(current)</span></a></li>
+	  	}
+	  }
+	</ul>
+	<br>
+</div>

@@ -1,0 +1,44 @@
+body {
+	background: rgb(238,238,238); /* Old browsers */
+	background: -moz-linear-gradient(left,  rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+	background: linear-gradient(to right,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 */
+}
+
+.panel-heading{
+	width: 100%;
+	text-align: left;
+}
+
+.modal-body * {
+	width: 100%;
+}
+
+.navbar-btn{
+	margin-left: 10%;
+
+}
+
+.navbar{
+	background-color: #245269;
+
+}
+
+.navbar .containher {
+	margin-left: 10px;
+}
+
+.semanas_table {
+	margin-left: auto; 
+	margin-right: auto; 
+	width: 400px; 
+	clear: both;
+}
+
+.inline_form {
+	display: inline;
+}

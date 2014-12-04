@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET 	/:semana					controllers.Application.goToSemana(semana : Integer)
+GET     /remove/:hashcode&:semana   controllers.Application.removeTarefa(hashcode : Long, semana : Integer)
+GET     /conclui/:hashcode&:semana  controllers.Application.concluiTarefa(hashcode : Long, semana : Integer)
+POST    /adiciona                   controllers.Application.adicionaTarefa()
